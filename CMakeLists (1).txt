@@ -1,0 +1,7 @@
+project(TP1)
+
+add_executable(battle_ship src/main.cpp)
+
+include_directories(include)
+
+set(CMAKE_CXX_STANDARD 17)
