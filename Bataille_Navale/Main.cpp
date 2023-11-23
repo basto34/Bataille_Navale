@@ -32,8 +32,8 @@ void main() {
 
 	}
 
+	else if (nbjoueurs == 1) {
 
-
-
+	}
 
 }

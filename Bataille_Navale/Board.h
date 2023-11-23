@@ -1,5 +1,6 @@
 #pragma once
 #include<vector>
+#include"Bateau.h"
 using namespace std;
 
 class Board
@@ -13,6 +14,6 @@ public:
 	bool estVide();
 	Board(int lar, int lon, int bat);
 	void toucherPos(int x, int y);
-	poseBoat(vector<Boat> listeBoat);
+	void poseBoat(Bateau boat);
 };
 

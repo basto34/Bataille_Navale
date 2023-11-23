@@ -28,3 +28,37 @@ Board::Board(int lar, int lon, int bat){
 void Board::toucherPos(int x, int y) {
 	grille[x][y] = 0 - grille[x][y];
 }
+
+void Board::poseBoat(Bateau boat) {
+	bool c;
+	int x;
+	int y;
+	cout << "x?";
+	cin >> x;
+	cout << "y?";
+	cin >> y;
+	boat.setX(x);
+	boat.setY(y);
+	cout << "horizontal (True) ou vertical (False)?"; 
+	cin >> c; 
+	boat.setHorizontal(c);
+	if (c) {
+		while (x+ boat.getNbCases()>largeur) {
+			cout << "nouveau x?";
+			cin >> x; 
+			boat.setX(x); 
+		}
+		for (int i = x; i = x + boat.getNbCases(); i++){
+			grille[i][y] = 2; 
+		}
+	}
+	else 
+		while (y + boat.getNbCases() > longueur) {
+			cout << "nouveau y?";
+			cin >> y;
+			boat.setY(y);
+		}
+	for (int i = y; i = y + boat.getNbCases(); i++) {
+		grille[x][i] = 2;
+	}
+}
