@@ -62,3 +62,16 @@ void Board::poseBoat(Bateau boat) {
 		grille[x][i] = 2;
 	}
 }
+
+vector<vector<int>> Board::getGrille()
+{
+	return grille;
+}
+void Board::afficherGrille()
+{
+	for (int i = 0; i < longueur; i++) {
+		for (int j = 0; j < largeur; j++) {
+			cout << grille[i][j];
+		}
+		cout << endl;
+	}
