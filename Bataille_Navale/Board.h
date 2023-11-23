@@ -12,7 +12,7 @@ private:
 public:
 	bool estVide();
 	Board(int lar, int lon, int bat);
-	void modifierGrille(int x, int y,int bat);
+	void toucherPos(int x, int y);
 
 };
 

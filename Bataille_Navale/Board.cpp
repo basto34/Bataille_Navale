@@ -13,8 +13,7 @@ bool Board::estVide() {
 
 }
 
-Board::Board(int lar, int lon, int bat)
-{
+Board::Board(int lar, int lon, int bat){
 	largeur = lar;
 	longueur = lon;
 		for (int i = 0; i < longueur; i++) {
@@ -24,5 +23,8 @@ Board::Board(int lar, int lon, int bat)
 			}
 		}
 		nbBateaux = bat;
+}
 
+void Board::toucherPos(int x, int y) {
+	grille[x][y] = 0 - grille[x][y];
 }
