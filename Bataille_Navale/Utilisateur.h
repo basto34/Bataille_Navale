@@ -5,5 +5,6 @@ class Utilisateur
 {
 private:
 	string surnom;
+public:
 };
 
