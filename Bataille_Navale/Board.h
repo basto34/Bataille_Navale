@@ -11,8 +11,8 @@ private:
 	int nbBateaux;
 public:
 	bool estVide();
-	Board(int lar, int lon);
-	void modifierGrille(int x, int y);
+	Board(int lar, int lon, int bat);
+	void modifierGrille(int x, int y,int bat);
 
 };
 
