@@ -13,6 +13,6 @@ public:
 	bool estVide();
 	Board(int lar, int lon, int bat);
 	void toucherPos(int x, int y);
-
+	poseBoat(vector<Boat> listeBoat);
 };
 
