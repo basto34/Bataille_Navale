@@ -6,5 +6,6 @@ class Utilisateur
 private:
 	string surnom;
 public:
+	lance()
 };
 
