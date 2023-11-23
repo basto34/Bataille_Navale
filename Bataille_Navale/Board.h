@@ -12,6 +12,7 @@ private:
 public:
 	bool estVide();
 	Board(int lar, int lon);
+	void modifierGrille(int x, int y);
 
 };
 
