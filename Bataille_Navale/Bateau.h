@@ -17,4 +17,5 @@ public:
     int getY(); 
     void setX(int c); 
     void setY(int c);
+    bool isMort();
 };

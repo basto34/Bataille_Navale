@@ -28,3 +28,11 @@ void Bateau::setY(int c)
 	y = c;
 }
 
+bool Bateau::isMort()
+{
+	if (touche == nbCases) {
+		return true;
+	}
+	return false;
+}
+
