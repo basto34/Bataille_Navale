@@ -26,6 +26,8 @@ void main() {
 		cin >> nom2;
 		Utilisateur joueur2(nom2);
 		cout << "Le placement des bateaux verticaux s'effectue de haut en bas, celui des horizontaux de gauche a droite" << endl;
+
+		//Initialisation de la grille pour les 2 joueurs
 		for (int n = 0; n <= 1; n++) {
 			for (int i = 0; i <= nbbateaux; i++) {
 				int taillebateau = 4;
@@ -64,7 +66,7 @@ void main() {
 						break;
 					}
 					else {
-						cout << "Le bateau ne peut pas etre place ici : il deborde de la grille. Recommencez" << endl;
+						cout << "Le bateau ne peut pas etre place ici. Recommencez" << endl;
 					}
 				}
 
@@ -74,6 +76,8 @@ void main() {
 
 
 			}
+
+			//Jeu 
 		}
 
 

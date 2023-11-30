@@ -58,17 +58,34 @@ vector<vector<int>> Board::getGrille()
 bool Board::estBienPlace(Bateau boat)
 {
 	bool horizontal = boat.getHorizontal();
+	int x = boat.getX();
+	int y = boat.getY();
+
 	if (horizontal) {
-		int x = boat.getX();
+		//On vérifie si c'est bien dans la grille
 		if (x + boat.getNbCases() > 10) {
+			
 			return false;
+		}
+		for (int i = x; i < x + boat.getNbCases(); i++) {
+			//Vérification superposition
+			if (grille[y][i] == 2) {
+				return false;
+			}
 		}
 		return true;
 	}
+
+
 	else {
-		int y = boat.getY();
 		if (y + boat.getNbCases() > 10) {
 			return false;
+		}
+		for (int i = y; i < y + boat.getNbCases(); i++) {
+			//Vérification superposition
+			if (grille[i][x] == 2) {
+				return false;
+			}
 		}
 		return true;
 	}
