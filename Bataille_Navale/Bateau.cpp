@@ -18,6 +18,11 @@ int Bateau::getY()
 	return y;
 }
 
+bool Bateau::getHorizontal()
+{
+	return horizontal;
+}
+
 void Bateau::setX(int c)
 {
 	x = c;
@@ -26,6 +31,11 @@ void Bateau::setX(int c)
 void Bateau::setY(int c)
 {
 	y = c;
+}
+
+void Bateau::setNbCases(int nb)
+{
+	this->nbCases = nb;
 }
 
 bool Bateau::isMort()

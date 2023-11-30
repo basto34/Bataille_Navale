@@ -17,5 +17,6 @@ public:
 	void poseBoat(Bateau boat);
 	vector<vector<int>> getGrille();
 	void afficherGrille();
+	bool estBienPlace(Bateau boat);
 };
 

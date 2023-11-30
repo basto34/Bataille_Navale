@@ -33,45 +33,66 @@ void Board::poseBoat(Bateau boat) {
 	bool c;
 	int x;
 	int y;
-	cout << "x?";
-	cin >> x;
-	cout << "y?";
-	cin >> y;
-	boat.setX(x);
-	boat.setY(y);
-	cout << "horizontal (True) ou vertical (False)?"; 
-	cin >> c; 
-	boat.setHorizontal(c);
-	if (c) {
-		while (x+ boat.getNbCases()>largeur) {
-			cout << "nouveau x?";
-			cin >> x; 
-			boat.setX(x); 
-		}
-		for (int i = x; i = x + boat.getNbCases(); i++){
+	
+	c = boat.getHorizontal();
+	x = boat.getX();
+	y = boat.getY();
+
+	if (!c) {
+		for (int i = 0; i <  boat.getNbCases(); i++){
 			grille[i][y] = 2; 
 		}
 	}
-	else 
-		while (y + boat.getNbCases() > longueur) {
-			cout << "nouveau y?";
-			cin >> y;
-			boat.setY(y);
+	else {
+		for (int i = 0; i <  boat.getNbCases(); i++) {
+			grille[x][i] = 2;
 		}
-	for (int i = y; i = y + boat.getNbCases(); i++) {
-		grille[x][i] = 2;
 	}
+	
 }
 
 vector<vector<int>> Board::getGrille()
 {
 	return grille;
 }
-void Board::afficherGrille()
+bool Board::estBienPlace(Bateau boat)
 {
+	bool horizontal = boat.getHorizontal();
+	if (horizontal) {
+		int x = boat.getX();
+		if (x + boat.getNbCases() > 10) {
+			return false;
+		}
+		return true;
+	}
+	else {
+		int y = boat.getY();
+		if (y + boat.getNbCases() > 10) {
+			return false;
+		}
+		return true;
+	}
+}
+void Board::afficherGrille() {
 	for (int i = 0; i < longueur; i++) {
 		for (int j = 0; j < largeur; j++) {
-			cout << grille[i][j];
+			int val = grille[i][j];
+			switch (val)
+			{
+			case 2:
+				cout << "X";
+				break;
+			case -2:
+				cout << "O";
+				break;
+			case 1:
+				cout << ".";
+				break;
+			case -1:
+				cout << "*";
+				break;
+			}
 		}
 		cout << endl;
 	}
+}

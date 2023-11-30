@@ -12,6 +12,6 @@ public:
 	vector<int> entrerCase();
 	Utilisateur(string pseudo);
 	void creerGrille(Board& grille);
-	void lancer
+	void lancer();
 };
 

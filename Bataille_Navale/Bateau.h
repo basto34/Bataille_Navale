@@ -11,11 +11,15 @@ private:
     bool horizontal;
 public:
     Bateau(int x, int y) :x(x), y(y) {};
+    Bateau() {};
     void setHorizontal(bool c); 
     int getNbCases(); 
     int getX(); 
     int getY(); 
+    bool getHorizontal();
+
     void setX(int c); 
     void setY(int c);
+    void setNbCases(int nb);
     bool isMort();
 };

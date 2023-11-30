@@ -2,29 +2,20 @@
 #include"Utilisateur.h"
 #include"iostream"
 #include"IA.h"
+#include <string> 
 using namespace std;
 
 
 void main() {
 	int nbjoueurs;
-	int longueur, largeur;
+	int longueur = 10, largeur = 10;
 	int nbbateaux = 4;
 
 	cout << "nombre de joueurs : ";
 	cin >> nbjoueurs;
 
-	cout << "longueur des grilles : ";
-	cin >> longueur;
-	cout << endl << "largeur des grilles : ";
-	cin >> largeur;
-
-<<<<<<< HEAD
 	Board grille1(longueur, largeur, nbbateaux);
 	Board grille2(longueur, largeur, nbbateaux);
-=======
-	Board board1(longueur, largeur, 4);
-	Board board2(longueur, largeur, 4);
->>>>>>> 48d4f439fba77efbb108b0696e333ff162798b6b
 
 	if (nbjoueurs == 2) {
 		string nom1, nom2;
@@ -35,11 +26,45 @@ void main() {
 		cin >> nom2;
 		Utilisateur joueur2(nom2);
 		for (int i = 0; i <= nbbateaux; i++) {
+			int taillebateau = 4;
 			bool isHorizontal;
-			cout << "Bateau horizontal ou vertical ? 1 : horizontal, 0 : vertical" << endl;
-			cin >> isHorizontal;
-			Bateau boat()
-			grille1.poseBoat()
+			char lettre;
+			int y;
+
+			Bateau boat;
+			while (true) {
+				cout << "Placement bateau " + to_string(i+1) + " pour le joueur " + nom1 << endl;
+				cout << "Bateau horizontal ou vertical ? 1 : horizontal, 0 : vertical" << endl;
+				cin >> isHorizontal;
+				cout << "Entrez le point d'origine du premier bateau (x,y) sachant que x est une lettre (A a J) et y un nombre (1 a 10) : " << endl;
+				cin >> lettre >> y;
+				int x;
+				y = y - 1;
+				if (int(lettre) >= 98) {
+					x = int(lettre) - 97;
+				}
+				else {
+					x = int(lettre) - 65;
+				}
+				boat.setX(x);
+				boat.setY(y);
+				boat.setHorizontal(isHorizontal);
+				boat.setNbCases(taillebateau);
+
+				if (grille1.estBienPlace(boat)) {
+					cout << "Le bateau est bien place" << endl;
+					break;
+				}
+				else {
+					cout << "Le bateau ne peut pas etre place ici : il deborde de la grille. Recommencez" << endl;
+				}
+			}
+
+
+			grille1.poseBoat(boat);
+			grille1.afficherGrille();
+
+
 		}
 
 
@@ -52,14 +77,15 @@ void main() {
 		vector<int> attaqueIA;
 		IA joueur2;
 		//jeu IA
-		while (!board1.estVide() && !board2.estVide()) {
+		while (!grille1.estVide() && !grille2.estVide()) {
 
 			attaqueIA = joueur2.jouerAleatoire(longueur, largeur);
 			//tant que la position d'attaque choisie par l'IA est interdite
 			//on demande une autre position
-			while (board1.getGrille()[attaqueIA[0]][attaqueIA[2]] > 0) {
+			while (grille1.getGrille()[attaqueIA[0]][attaqueIA[2]] > 0) {
 				attaqueIA = joueur2.jouerAleatoire(longueur, largeur);
 			}
 		}
 
+	}
 }
