@@ -25,8 +25,11 @@ Board::Board(int lar, int lon, int bat){
 		nbBateaux = bat;
 }
 
-void Board::toucherPos(int x, int y) {
-	grille[x][y] = 0 - grille[x][y];
+int Board::toucherPos(int x, int y) {
+	if (grille[x][y] > 0) {
+		grille[x][y] = 0 - grille[x][y];
+	}
+	return grille[x][y];
 }
 
 void Board::poseBoat(Bateau boat) {
