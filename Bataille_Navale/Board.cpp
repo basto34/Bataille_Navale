@@ -38,14 +38,14 @@ void Board::poseBoat(Bateau boat) {
 	x = boat.getX();
 	y = boat.getY();
 
-	if (!c) {
-		for (int i = 0; i <  boat.getNbCases(); i++){
-			grille[i][y] = 2; 
+	if (c) {
+		for (int i = x; i < x + boat.getNbCases(); i++){
+			grille[y][i] = 2; 
 		}
 	}
 	else {
-		for (int i = 0; i <  boat.getNbCases(); i++) {
-			grille[x][i] = 2;
+		for (int i = y; i < y + boat.getNbCases(); i++) {
+			grille[i][x] = 2;
 		}
 	}
 	

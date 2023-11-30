@@ -25,46 +25,55 @@ void main() {
 		cout << endl << "pseudo joueur 2 : ";
 		cin >> nom2;
 		Utilisateur joueur2(nom2);
-		for (int i = 0; i <= nbbateaux; i++) {
-			int taillebateau = 4;
-			bool isHorizontal;
-			char lettre;
-			int y;
+		cout << "Le placement des bateaux verticaux s'effectue de haut en bas, celui des horizontaux de gauche a droite" << endl;
+		for (int n = 0; n <= 1; n++) {
+			for (int i = 0; i <= nbbateaux; i++) {
+				int taillebateau = 4;
+				bool isHorizontal;
+				char lettre;
+				int y;
 
-			Bateau boat;
-			while (true) {
-				cout << "Placement bateau " + to_string(i+1) + " pour le joueur " + nom1 << endl;
-				cout << "Bateau horizontal ou vertical ? 1 : horizontal, 0 : vertical" << endl;
-				cin >> isHorizontal;
-				cout << "Entrez le point d'origine du premier bateau (x,y) sachant que x est une lettre (A a J) et y un nombre (1 a 10) : " << endl;
-				cin >> lettre >> y;
-				int x;
-				y = y - 1;
-				if (int(lettre) >= 98) {
-					x = int(lettre) - 97;
-				}
-				else {
-					x = int(lettre) - 65;
-				}
-				boat.setX(x);
-				boat.setY(y);
-				boat.setHorizontal(isHorizontal);
-				boat.setNbCases(taillebateau);
+				Bateau boat;
+				while (true) {
+					cout << "Placement bateau " + to_string(i + 1) + " pour le joueur ";
+						if (n == 1) {
+							cout << nom1 << endl;
+					}
+						else {
+							cout << nom2 << endl;
+						}
+					cout << "Bateau horizontal ou vertical ? 1 : horizontal, 0 : vertical" << endl;
+					cin >> isHorizontal;
+					cout << "Entrez le point d'origine du premier bateau (x,y) sachant que x est une lettre (A a J) et y un nombre (1 a 10) : " << endl;
+					cin >> lettre >> y;
+					int x;
+					y = y - 1;
+					if (int(lettre) >= 98) {
+						x = int(lettre) - 97;
+					}
+					else {
+						x = int(lettre) - 65;
+					}
+					boat.setX(x);
+					boat.setY(y);
+					boat.setHorizontal(isHorizontal);
+					boat.setNbCases(taillebateau);
 
-				if (grille1.estBienPlace(boat)) {
-					cout << "Le bateau est bien place" << endl;
-					break;
+					if (grille1.estBienPlace(boat)) {
+						cout << "Le bateau est bien place" << endl;
+						break;
+					}
+					else {
+						cout << "Le bateau ne peut pas etre place ici : il deborde de la grille. Recommencez" << endl;
+					}
 				}
-				else {
-					cout << "Le bateau ne peut pas etre place ici : il deborde de la grille. Recommencez" << endl;
-				}
+
+
+				grille1.poseBoat(boat);
+				grille1.afficherGrille();
+
+
 			}
-
-
-			grille1.poseBoat(boat);
-			grille1.afficherGrille();
-
-
 		}
 
 
