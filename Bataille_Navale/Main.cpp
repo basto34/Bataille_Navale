@@ -12,7 +12,7 @@ using namespace std;
 void main() {
 	int nbjoueurs;
 	int longueur = 10, largeur = 10;
-	int nbbateaux = 1;
+	int nbbateaux = 5;
 
 	cout << "Nombre de joueurs : ";
 	cin >> nbjoueurs;
@@ -101,23 +101,18 @@ void main() {
 					cout << "Entrez le point d'origine du premier bateau (x,y) sachant que x est une lettre (A a J) et y un nombre (1 a 10) : " << endl;
 					cin >> lettre >> y;
 					//On vérifie si la lettre et le nombre sont dans le bon intervalle
-					cout << int(lettre) << endl;
-					cout << y << endl;
 					while ((int(lettre) <= 64 || (int(lettre) > 74 && int(lettre) < 97) || int(lettre) > 106) || (y < 1 || y > 10))
 					{
 						cout << "Les valeurs ne sont pas bonnes ! Rentrez la colonne entre A et J puis la ligne entre 1 et 10" << endl;
 						cin >> lettre >> y;
 					}
-					
 					int x;
 					y = y - 1;
 					if (int(lettre) >= 97) {
 						x = int(lettre) - 97;
-						cout << x << endl;
 					}
 					else {
 						x = int(lettre) - 65;
-						cout << x << endl;
 					}
 
 					//On initialise le bateau
