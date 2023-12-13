@@ -1,6 +1,9 @@
 #include "Board.h"
 #include"Utilisateur.h"
-#include"iostream"
+#include <iostream>
+#include <thread>
+#include <stdlib.h>     //for using the function sleep
+
 #include"IA.h"
 #include <string> 
 using namespace std;
@@ -175,6 +178,12 @@ void main() {
 
 				//On frappe la grille adverse
 				int touche1 = grille2.toucherPos(x1, y1);
+				system("CLS");
+				cout << "Coup envoye !" << endl;
+				for (int i = 0; i <= 2; i++) {
+					std::this_thread::sleep_for(250ms);
+					cout << ".";
+				}
 				switch (touche1) {
 				case -1:
 					cout << "Dans l'eau";
@@ -186,6 +195,7 @@ void main() {
 					cout << "Bizarre...";
 					break;
 				}
+				std::this_thread::sleep_for(1500ms);
 				//On note le résultat sur la grille de l'adversaire
 				grille3.setVal(x1, y1, touche1);
 
@@ -221,18 +231,24 @@ void main() {
 				//On frappe la grille adverse
 				int touche2 = grille1.toucherPos(x2, y2);
 				system("CLS");
-
+				cout << "Coup envoye !" << endl;
+				for (int i = 0; i <= 2; i++) {
+					std::this_thread::sleep_for(250ms);
+					cout << ".";
+				}
+				
 				switch (touche2) {
 				case -1:
-					cout << "Dans l'eau";
+					cout << "Dans l'eau :(" << endl;
 					break;
 				case -2:
-					cout << "Touche";
+					cout << "Touche !!!" << endl;
 					break;
 				default:
-					cout << "Bizarre...";
+					cout << "Bizarre..." << endl;
 					break;
 				}
+				std::this_thread::sleep_for(1500ms);
 				//On note le résultat sur la grille de l'adversaire
 				grille4.setVal(x2, y2, touche2);
 			}
@@ -249,13 +265,14 @@ void main() {
 		vector<int> attaqueIA;
 		IA joueur2;
 		//jeu IA
+		cout << "jeu ia" << endl;
 		while (!grille1.estVide() && !grille2.estVide()) {
-
-			attaqueIA = joueur2.jouerAleatoire(longueur, largeur);
+			grille1.afficherGrille();
+			attaqueIA = joueur2.jouerReflechi(grille1);
 			//tant que la position d'attaque choisie par l'IA est interdite
 			//on demande une autre position
 			while (grille1.getGrille()[attaqueIA[0]][attaqueIA[2]] > 0) {
-				attaqueIA = joueur2.jouerAleatoire(longueur, largeur);
+				attaqueIA = joueur2.jouerReflechi(grille1);
 			}
 		}
 
