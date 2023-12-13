@@ -15,6 +15,7 @@ public:
 	Board(int lar, int lon, int bat);
 	int toucherPos(int x, int y);
 	void poseBoat(Bateau boat);
+	void setVal(int x, int y, int val);
 	vector<vector<int>> getGrille();
 	void afficherGrille();
 	bool estBienPlace(Bateau boat);

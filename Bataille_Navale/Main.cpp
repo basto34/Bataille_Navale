@@ -9,7 +9,7 @@ using namespace std;
 void main() {
 	int nbjoueurs;
 	int longueur = 10, largeur = 10;
-	int nbbateaux = 2;
+	int nbbateaux = 1;
 
 	cout << "Nombre de joueurs : ";
 	cin >> nbjoueurs;
@@ -107,25 +107,32 @@ void main() {
 						if (grille1.estBienPlace(boat)) {
 							cout << "Le bateau est bien place" << endl;
 							test = true;
+							grille1.poseBoat(boat);
+							grille1.afficherGrille();
+							system("pause");
 						}
 						else {
 							cout << "Le bateau ne peut pas etre place ici. Recommencez" << endl;
 						}
-						grille1.poseBoat(boat);
-						grille1.afficherGrille();
+						
+						
 					}
 					else {
 						if (grille2.estBienPlace(boat)) {
 							cout << "Le bateau est bien place" << endl;
 							test = true;
+							grille2.poseBoat(boat);
+							grille2.afficherGrille();
+							system("pause");
 						}
 						else {
 							cout << "Le bateau ne peut pas etre place ici. Recommencez" << endl;
+							
 						}
-						grille2.poseBoat(boat);
-						grille2.afficherGrille();
+						
+						
 					}
-
+					
 					
 				} while (!test);
 					
@@ -133,12 +140,25 @@ void main() {
 
 			}
 		}
-			//Jeu : on joue tant que les deux grille contiennent des bateaux
+
 			//On doit créer deux autres grilles qui sont les grilles sur lesquelles on tire
+			Board grille3(longueur, largeur, nbbateaux);
+			Board grille4(longueur, largeur, nbbateaux);
+			//Jeu : on joue tant que les deux grille contiennent des bateaux
+			
 			while (!grille1.estVide() || !grille2.estVide()) {
+				//On nettoye la console
+				system("CLS");
+
 				//Tour du joueur 1 
+				cout << "Tour de " + nom1 << endl;
 				char lettre1;
 				int y1;
+				cout << "Grille de l'adversaire" << endl;
+				grille3.afficherGrille();
+				cout << "-------------------------------------------------------------------------" << endl;
+				cout << "Votre grille" << endl;
+				grille1.afficherGrille();
 				cout << nom1 + " donnez votre coup (x,y) avec sachant que x est une lettre (A a J) et y un nombre (1 a 10) : " << endl;
 				cin >> lettre1;
 				cin >> y1;
@@ -166,11 +186,21 @@ void main() {
 					cout << "Bizarre...";
 					break;
 				}
+				//On note le résultat sur la grille de l'adversaire
+				grille3.setVal(x1, y1, touche1);
 
+				//On nettoye la console
+				system("CLS");
 
 				//Tour du joueur 2 
+				cout << "Tour de " + nom2 << endl;
 				char lettre2;
 				int y2;
+				cout << "Grille de l'adversaire" << endl;
+				grille4.afficherGrille();
+				cout << "-------------------------------------------------------------------------" << endl;
+				cout << "Votre grille" << endl;
+				grille2.afficherGrille();
 				cout << nom2 + " donnez votre coup (x,y) avec sachant que x est une lettre (A a J) et y un nombre (1 a 10) : " << endl;
 				cin >> lettre2;
 				cin >> y2;
@@ -190,6 +220,8 @@ void main() {
 
 				//On frappe la grille adverse
 				int touche2 = grille1.toucherPos(x2, y2);
+				system("CLS");
+
 				switch (touche2) {
 				case -1:
 					cout << "Dans l'eau";
@@ -201,6 +233,8 @@ void main() {
 					cout << "Bizarre...";
 					break;
 				}
+				//On note le résultat sur la grille de l'adversaire
+				grille4.setVal(x2, y2, touche2);
 			}
 
 		

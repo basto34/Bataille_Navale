@@ -26,10 +26,10 @@ Board::Board(int lar, int lon, int bat){
 }
 
 int Board::toucherPos(int x, int y) {
-	if (grille[x][y] > 0) {
-		grille[x][y] = 0 - grille[x][y];
+	if (grille[y][x] > 0) {
+		grille[y][x] = 0 - grille[y][x];
 	}
-	return grille[x][y];
+	return grille[y][x];
 }
 
 void Board::poseBoat(Bateau boat) {
@@ -52,6 +52,11 @@ void Board::poseBoat(Bateau boat) {
 		}
 	}
 	
+}
+
+void Board::setVal(int x, int y, int val)
+{
+	grille[y][x] = val;
 }
 
 vector<vector<int>> Board::getGrille()
@@ -95,7 +100,7 @@ bool Board::estBienPlace(Bateau boat)
 }
 void Board::afficherGrille() {
 	// Afficher la numérotation des colonnes (A à J)
-	cout << "  A B C D E F G H I J" << endl;
+	cout << "   A B C D E F G H I J" << endl;
 	for (int i = 0; i < longueur; i++) {
 		// Afficher la numérotation des lignes (1 à 10)
 		if(i<=8) { cout << i + 1 << "  "; }
