@@ -98,6 +98,13 @@ bool Board::estBienPlace(Bateau boat)
 		return true;
 	}
 }
+
+/**
+	*\brief Test
+	*
+	*
+	*Test
+**/
 void Board::afficherGrille() {
 	// Afficher la numérotation des colonnes (A à J)
 	cout << "   A B C D E F G H I J" << endl;

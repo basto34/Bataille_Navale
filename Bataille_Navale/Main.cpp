@@ -61,8 +61,8 @@ void main() {
 				}
 				
 				bool isHorizontal;
-				char lettre;
-				int y;
+				char lettre = 0;
+				int y = 0;
 				bool test = false;
 				Bateau boat;
 				do {
@@ -78,25 +78,46 @@ void main() {
 
 					//On demande si le bateau est horizontal ou vertical avec les lettres h et v et on ajuste isHorizontal en fonction
 					cout << "Bateau horizontal ou vertical ? h : horizontal, v : vertical" << endl;
+					
 					string orientation;
-					cin >> orientation;
-					if (orientation == "h") {
-						isHorizontal = true;
+					int comptdebile = 0;
+					while (orientation != "h" && orientation != "v" && orientation != "H" && orientation != "V") {
+						comptdebile += 1;
+						cin >> orientation;
+						if (orientation == "h" || orientation == "H") {
+							isHorizontal = true;
+						}
+						else if (orientation == "v" || orientation == "V") {
+							isHorizontal = false;
+						}
+						else {
+							if (comptdebile <=2) { std::cout << "Choisissez une valeur possible" << endl; }
+							else { std::cout << "T'es idiot ? On t'a dis choisis une valeur possible" << endl; }
+						}
 					}
-					else {
-						isHorizontal = false;
-					}
+					
 
 					//On demande la position du bateau
 					cout << "Entrez le point d'origine du premier bateau (x,y) sachant que x est une lettre (A a J) et y un nombre (1 a 10) : " << endl;
 					cin >> lettre >> y;
+					//On vérifie si la lettre et le nombre sont dans le bon intervalle
+					cout << int(lettre) << endl;
+					cout << y << endl;
+					while ((int(lettre) <= 64 || (int(lettre) > 74 && int(lettre) < 97) || int(lettre) > 106) || (y < 1 || y > 10))
+					{
+						cout << "Les valeurs ne sont pas bonnes ! Rentrez la colonne entre A et J puis la ligne entre 1 et 10" << endl;
+						cin >> lettre >> y;
+					}
+					
 					int x;
 					y = y - 1;
-					if (int(lettre) >= 98) {
+					if (int(lettre) >= 97) {
 						x = int(lettre) - 97;
+						cout << x << endl;
 					}
 					else {
 						x = int(lettre) - 65;
+						cout << x << endl;
 					}
 
 					//On initialise le bateau
@@ -181,7 +202,7 @@ void main() {
 				system("CLS");
 				cout << "Coup envoye !" << endl;
 				for (int i = 0; i <= 2; i++) {
-					std::this_thread::sleep_for(250ms);
+					std::this_thread::sleep_for(333ms);
 					cout << ".";
 				}
 				switch (touche1) {
@@ -233,7 +254,7 @@ void main() {
 				system("CLS");
 				cout << "Coup envoye !" << endl;
 				for (int i = 0; i <= 2; i++) {
-					std::this_thread::sleep_for(250ms);
+					std::this_thread::sleep_for(333ms);
 					cout << ".";
 				}
 				
