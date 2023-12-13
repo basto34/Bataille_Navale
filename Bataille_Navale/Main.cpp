@@ -29,6 +29,10 @@ void main() {
 
 		//Initialisation de la grille pour les 2 joueurs
 		for (int n = 0; n <= 1; n++) {
+
+			//Nettoyer la console
+			system("CLS");
+
 			cout << "Le placement des bateaux verticaux s'effectue de haut en bas, celui des horizontaux de gauche a droite" << endl;
 
 			for (int i = 0; i < nbbateaux; i++) {
@@ -129,7 +133,8 @@ void main() {
 
 			}
 		}
-			//Jeu : on joue tant que les deux grille contiennent des bateaux 
+			//Jeu : on joue tant que les deux grille contiennent des bateaux
+			//On doit créer deux autres grilles qui sont les grilles sur lesquelles on tire
 			while (!grille1.estVide() || !grille2.estVide()) {
 				//Tour du joueur 1 
 				char lettre1;

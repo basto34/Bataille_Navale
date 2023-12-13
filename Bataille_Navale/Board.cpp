@@ -94,7 +94,12 @@ bool Board::estBienPlace(Bateau boat)
 	}
 }
 void Board::afficherGrille() {
+	// Afficher la numérotation des colonnes (A à J)
+	cout << "  A B C D E F G H I J" << endl;
 	for (int i = 0; i < longueur; i++) {
+		// Afficher la numérotation des lignes (1 à 10)
+		if(i<=8) { cout << i + 1 << "  "; }
+		else { cout << i + 1 << " "; }
 		for (int j = 0; j < largeur; j++) {
 			int val = grille[i][j];
 			switch (val)
@@ -112,6 +117,7 @@ void Board::afficherGrille() {
 				cout << "*";
 				break;
 			}
+			cout << " "; // Ajouter un espace entre chaque case pour améliorer la lisibilité
 		}
 		cout << endl;
 	}
