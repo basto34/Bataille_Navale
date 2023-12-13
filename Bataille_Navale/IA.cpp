@@ -1,5 +1,11 @@
 #include "IA.h"
 
+/**
+	*\brief Joue au hasard
+	*
+	*
+	*
+**/
 vector<int> IA::jouerAleatoire()
 {
 	vector<int> pos;
@@ -7,7 +13,12 @@ vector<int> IA::jouerAleatoire()
 	pos.push_back(rand() % 10);
 	return pos;
 }
-
+/**
+	*\brief Joue selon les derniers coups de l'adversaire
+	*
+	*
+	*
+**/
 vector<int> IA::jouerReflechi(Board grille) {
 	vector<int> pos;
 	vector<vector<int>> tableau = grille.getGrille();

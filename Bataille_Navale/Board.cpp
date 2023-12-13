@@ -1,5 +1,11 @@
 #include "Board.h"
 
+/**
+	*\brief Verifie si la grille est vide
+	*
+	*
+	*Ne retourne true que si toutes les cases sont vides, c'est a dire s'il n'y a pas de bateau en vie. Les bateaux coules comptent pour une case vide
+**/
 bool Board::estVide() {
 	bool res =true;
 	for (int i = 0; i < longueur; i++) {
@@ -13,6 +19,12 @@ bool Board::estVide() {
 
 }
 
+/**
+	*\brief Constructeur de grille
+	*
+	*
+	*Prend une longueur, une largeur et un nombre de bateaux en arguments
+**/
 Board::Board(int lar, int lon, int bat){
 	largeur = lar;
 	longueur = lon;
@@ -25,6 +37,12 @@ Board::Board(int lar, int lon, int bat){
 		nbBateaux = bat;
 }
 
+/**
+	*\brief Effectue un tir sur la position donnee en arguments
+	*
+	*
+	*Ne change la valeur de la position que si elle n'a pas ete tiree precedemment
+**/
 int Board::toucherPos(int x, int y) {
 	if (grille[y][x] > 0) {
 		grille[y][x] = 0 - grille[y][x];
@@ -32,6 +50,12 @@ int Board::toucherPos(int x, int y) {
 	return grille[y][x];
 }
 
+/**
+	*\brief Pose le bateau sur la grille. A n'appeler que si on a utilise estBienplace precedemment
+	*
+	*
+	* Prend un bateau en argument. Met a jour la grille en posant le bateau.
+**/
 void Board::poseBoat(Bateau boat) {
 	bool c;
 	int x;
@@ -54,15 +78,35 @@ void Board::poseBoat(Bateau boat) {
 	
 }
 
+/**
+	*\brief Ecrit l'entier val dans la grille a la position x,y
+	*
+	*
+	*
+**/
 void Board::setVal(int x, int y, int val)
 {
 	grille[y][x] = val;
 }
 
+/**
+	*\brief Retourne la grille
+	*
+	*
+	*
+**/
 vector<vector<int>> Board::getGrille()
 {
 	return grille;
 }
+
+/**
+	*\brief Verifie si le bateau est bien place
+	*
+	*
+	*Prend le bateau a verifier en argument. Retourne true si le bateau est bien place. 
+	* Le bateau est mal place si il deborde de la grille ou si il est place sur un autre bateau.
+**/
 bool Board::estBienPlace(Bateau boat)
 {
 	bool horizontal = boat.getHorizontal();
@@ -100,10 +144,10 @@ bool Board::estBienPlace(Bateau boat)
 }
 
 /**
-	*\brief Test
+	*\brief Affiche la grille
 	*
 	*
-	*Test
+	*affiche la grille dans la console.
 **/
 void Board::afficherGrille() {
 	// Afficher la numérotation des colonnes (A à J)
