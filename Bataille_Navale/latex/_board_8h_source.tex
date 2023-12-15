@@ -1,0 +1,28 @@
+\doxysection{Board.\+h}
+\hypertarget{_board_8h_source}{}\label{_board_8h_source}\mbox{\hyperlink{_board_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{_bateau_8h}{Bateau.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_board}{Board}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \ \ \ \ vector<vector<int>>\ grille;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{int}\ largeur;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ longueur;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ nbBateaux;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_board_ab79cdd8ce2c4e5b6964a1c6a4aa21a89}{estVide}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_board}{Board}}(\textcolor{keywordtype}{int}\ lar,\ \textcolor{keywordtype}{int}\ lon,\ \textcolor{keywordtype}{int}\ bat);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_afaaddadc9416666e265b585849ddcf18}{toucherPos}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a3dcf43f21691dbbefba14ce2ae035605}{poseBoat}}(\mbox{\hyperlink{class_bateau}{Bateau}}\ boat);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a234e5c240a169dc1af938f4224ca1b94}{setVal}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00019\ \ \ \ \ vector<vector<int>>\ \mbox{\hyperlink{class_board_ad3334b29cfd968a7016ce6efa12521bd}{getGrille}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_aa941d78627c7c79484e9834e66f8b75d}{afficherGrille}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_board_a4a594a2b93cf626506dc2ead7616edd0}{estBienPlace}}(\mbox{\hyperlink{class_bateau}{Bateau}}\ boat);}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+
+\end{DoxyCode}

@@ -1,0 +1,117 @@
+\doxysection{Board Class Reference}
+\hypertarget{class_board}{}\label{class_board}\index{Board@{Board}}
+
+
+{\ttfamily \#include $<$Board.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_board_ab79cdd8ce2c4e5b6964a1c6a4aa21a89}{est\+Vide}} ()
+\begin{DoxyCompactList}\small\item\em Verifie si la grille est vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_board_aaa1ed1991de9819a3ff09e40498eff7c}{Board}} (int lar, int lon, int bat)
+\begin{DoxyCompactList}\small\item\em Constructeur de grille. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_board_afaaddadc9416666e265b585849ddcf18}{toucher\+Pos}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Effectue un tir sur la position donnee en arguments. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a3dcf43f21691dbbefba14ce2ae035605}{pose\+Boat}} (\mbox{\hyperlink{class_bateau}{Bateau}} boat)
+\begin{DoxyCompactList}\small\item\em Pose le bateau sur la grille. A n\textquotesingle{}appeler que si on a utilise est\+Bienplace precedemment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a234e5c240a169dc1af938f4224ca1b94}{set\+Val}} (int x, int y, int val)
+\begin{DoxyCompactList}\small\item\em Ecrit l\textquotesingle{}entier val dans la grille a la position x,y. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{class_board_ad3334b29cfd968a7016ce6efa12521bd}{get\+Grille}} ()
+\begin{DoxyCompactList}\small\item\em Retourne la grille. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_aa941d78627c7c79484e9834e66f8b75d}{afficher\+Grille}} ()
+\begin{DoxyCompactList}\small\item\em Affiche la grille. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_a4a594a2b93cf626506dc2ead7616edd0}{est\+Bien\+Place}} (\mbox{\hyperlink{class_bateau}{Bateau}} boat)
+\begin{DoxyCompactList}\small\item\em Verifie si le bateau est bien place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_board_aaa1ed1991de9819a3ff09e40498eff7c}\label{class_board_aaa1ed1991de9819a3ff09e40498eff7c} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{int}]{lar,  }\item[{int}]{lon,  }\item[{int}]{bat }\end{DoxyParamCaption})}
+
+
+
+Constructeur de grille. 
+
+Prend une longueur, une largeur et un nombre de bateaux en arguments 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_board_aa941d78627c7c79484e9834e66f8b75d}\label{class_board_aa941d78627c7c79484e9834e66f8b75d} 
+\index{Board@{Board}!afficherGrille@{afficherGrille}}
+\index{afficherGrille@{afficherGrille}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{afficherGrille()}{afficherGrille()}}
+{\footnotesize\ttfamily void Board\+::afficher\+Grille (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affiche la grille. 
+
+affiche la grille dans la console. \Hypertarget{class_board_a4a594a2b93cf626506dc2ead7616edd0}\label{class_board_a4a594a2b93cf626506dc2ead7616edd0} 
+\index{Board@{Board}!estBienPlace@{estBienPlace}}
+\index{estBienPlace@{estBienPlace}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{estBienPlace()}{estBienPlace()}}
+{\footnotesize\ttfamily bool Board\+::est\+Bien\+Place (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bateau}{Bateau}}}]{boat }\end{DoxyParamCaption})}
+
+
+
+Verifie si le bateau est bien place. 
+
+Prend le bateau a verifier en argument. Retourne true si le bateau est bien place. Le bateau est mal place si il deborde de la grille ou si il est place sur un autre bateau. \Hypertarget{class_board_ab79cdd8ce2c4e5b6964a1c6a4aa21a89}\label{class_board_ab79cdd8ce2c4e5b6964a1c6a4aa21a89} 
+\index{Board@{Board}!estVide@{estVide}}
+\index{estVide@{estVide}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{estVide()}{estVide()}}
+{\footnotesize\ttfamily bool Board\+::est\+Vide (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Verifie si la grille est vide. 
+
+Ne retourne true que si toutes les cases sont vides, c\textquotesingle{}est a dire s\textquotesingle{}il n\textquotesingle{}y a pas de bateau en vie. Les bateaux coules comptent pour une case vide \Hypertarget{class_board_ad3334b29cfd968a7016ce6efa12521bd}\label{class_board_ad3334b29cfd968a7016ce6efa12521bd} 
+\index{Board@{Board}!getGrille@{getGrille}}
+\index{getGrille@{getGrille}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getGrille()}{getGrille()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ int $>$ $>$ Board\+::get\+Grille (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne la grille. 
+
+\Hypertarget{class_board_a3dcf43f21691dbbefba14ce2ae035605}\label{class_board_a3dcf43f21691dbbefba14ce2ae035605} 
+\index{Board@{Board}!poseBoat@{poseBoat}}
+\index{poseBoat@{poseBoat}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{poseBoat()}{poseBoat()}}
+{\footnotesize\ttfamily void Board\+::pose\+Boat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bateau}{Bateau}}}]{boat }\end{DoxyParamCaption})}
+
+
+
+Pose le bateau sur la grille. A n\textquotesingle{}appeler que si on a utilise est\+Bienplace precedemment. 
+
+Prend un bateau en argument. Met a jour la grille en posant le bateau. \Hypertarget{class_board_a234e5c240a169dc1af938f4224ca1b94}\label{class_board_a234e5c240a169dc1af938f4224ca1b94} 
+\index{Board@{Board}!setVal@{setVal}}
+\index{setVal@{setVal}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setVal()}{setVal()}}
+{\footnotesize\ttfamily void Board\+::set\+Val (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Ecrit l\textquotesingle{}entier val dans la grille a la position x,y. 
+
+\Hypertarget{class_board_afaaddadc9416666e265b585849ddcf18}\label{class_board_afaaddadc9416666e265b585849ddcf18} 
+\index{Board@{Board}!toucherPos@{toucherPos}}
+\index{toucherPos@{toucherPos}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{toucherPos()}{toucherPos()}}
+{\footnotesize\ttfamily int Board\+::toucher\+Pos (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Effectue un tir sur la position donnee en arguments. 
+
+Ne change la valeur de la position que si elle n\textquotesingle{}a pas ete tiree precedemment 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_board_8h}{Board.\+h}}\item 
+\mbox{\hyperlink{_board_8cpp}{Board.\+cpp}}\end{DoxyCompactItemize}
