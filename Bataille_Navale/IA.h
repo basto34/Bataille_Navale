@@ -13,5 +13,6 @@ private:
 public:
 	vector<int> jouerAleatoire();
 	vector<int> jouerReflechi(Board grille);
+	bool horizontalBoat();
+	vector<int> posBoat();
 };
-
